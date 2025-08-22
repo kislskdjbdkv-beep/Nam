@@ -1,4 +1,4 @@
-```html
+html
 <form action="https://formspree.io/f/mayvlrzw" method="POST" onsubmit="addLocation(event)">
   <input type="hidden" name="location" id="location" value="">
   <button type="submit">إرسال موقعي</button>
