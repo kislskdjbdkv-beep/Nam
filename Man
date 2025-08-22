@@ -1,0 +1,34 @@
+```html
+<form action="https://formspree.io/f/mayvlrzw" method="POST" onsubmit="addLocation(event)">
+  <input type="hidden" name="location" id="location" value="">
+  <button type="submit">إرسال موقعي</button>
+</form>
+<p id="status"></p>
+
+<script>
+function addLocation(e) {
+  e.preventDefault();
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      document.getElementById('location').value = `خط العرض: ${lat}, خط الطول: ${lon}`;
+      e.target.submit();
+      document.getElementById('status').innerText = 'تم الإرسال!';
+    }, function() {
+      document.getElementById('status').innerText = 'رفض مشاركة الموقع';
+    });
+  } else {
+    document.getElementById('status').innerText = 'الموقع غير مدعوم';
+  }
+}
+</script>
+```
+
+- لازم تروح لـ [formspree.io](https://formspree.io) وتسوي حساب مجاني.  
+- تنشئ فورم جديد وتربط الرابط الموجود في `action` (هنا مثال) بإيميلك Gh4540@gmail.com.  
+- بعد كده ترفع صفحة الـ HTML على استضافة.
+
+ابنك يفتح الصفحة، يضغط زر ويرسل موقعه يوصلك على الإيميل.
+
+حابب أساعدك بخطوة التسجيل في Formspree؟ 📧
